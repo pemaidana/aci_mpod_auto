@@ -1,0 +1,117 @@
+---
+- name: Configure ACI Tenant Objects
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    apic_host: "sandboxapicdc.cisco.com"
+    apic_user: "admin"
+    apic_pass: "!v3G@!4@Y"
+  
+  tasks:
+  - name: Reading ACI Objects from CSV file
+    read_csv:
+      path: ../csv/tenant_pol.csv
+    register: tenant_pol
+    delegate_to: localhost
+    tags:
+      - tenant
+      - vrf
+      - bd
+      - anp
+      - epg
+
+  - name: Configuring Tenants
+    aci_tenant:
+      hostname: "{{ apic_host }}"
+      username: "{{ apic_user }}"
+      password: "{{ apic_pass }}"
+      tenant: "{{ item.tenant_name }}"
+      state: "{{ item.tenant_state }}"
+      validate_certs: false
+    loop: "{{ tenant_pol.list | json_query('[].{tenant_name: tenant_name, tenant_state: tenant_state}')|unique }}"
+    loop_control:
+      label: "Configuring Tenant \"{{ item.tenant_name }}\""
+    tags: tenant
+
+  - name: Configuring VRFs
+    aci_vrf:
+      hostname: "{{ apic_host }}"
+      username: "{{ apic_user }}"
+      password: "{{ apic_pass }}"
+      vrf: "{{ item.vrf_name }}"
+      tenant: "{{ item.tenant_name }}"
+      preferred_group: "{{ item.vrf_preferred_group }}"
+      state: "{{ item.vrf_state }}"
+      validate_certs: false
+    loop: "{{ tenant_pol.list | json_query('[].{tenant_name: tenant_name, vrf_name: vrf_name, policy_control_preference: policy_control_preference, vrf_preferred_group: vrf_preferred_group, vrf_state: vrf_state}')|unique }}"
+    loop_control:
+      label: "Configuring VRF \"{{ item.vrf_name }}\" Tenant \"{{ item.tenant_name }}\""
+    tags: vrf
+
+  - name: Configuring Bridge Domains
+    aci_bd:
+      hostname: "{{ apic_host }}"
+      username: "{{ apic_user }}"
+      password: "{{ apic_pass }}"
+      tenant: "{{ item.tenant_name }}"
+      bd: "{{ item.bd_name }}"
+      endpoint_move_detect: "{{ item.endpoint_move_detection }}"
+      l2_unknown_unicast: "{{ item.l2_unknown_unicast }}"
+      enable_routing: "{{ item.enable_routing }}"
+      vrf: "{{ item.vrf_name }}"
+      state: "{{ item.bd_state }}"
+      validate_certs: false
+    loop: "{{ tenant_pol.list }}"
+    loop_control:
+      label: "Configuring BD \"{{ item.bd_name }}\" VRF \"{{ item.vrf_name }}\" Tenant \"{{ item.tenant_name }}\""
+    tags: bd
+
+  - name: Configuring Bridge Domains Subnets
+    aci_bd_subnet:
+      hostname: "{{ apic_host }}"
+      username: "{{ apic_user }}"
+      password: "{{ apic_pass }}"
+      tenant: "{{ item.tenant_name }}"
+      bd: "{{ item.bd_name }}"
+      gateway: "{{ item.gateway }}"
+      mask: "{{ item.mask }}"
+      scope: "{{ item.scope }}"
+      state: "{{ item.subnet_state }}"
+      validate_certs: false
+    when: item.gateway != ""
+    loop: "{{ tenant_pol.list }}"
+    loop_control:
+      label: "Configuring Subnet \"{{ item.gateway }}/{{ item.mask }}\" BD \"{{ item.bd_name }}\" VRF \"{{ item.vrf_name }}\" Tenant \"{{ item.tenant_name }}\""
+    tags: bd
+
+  - name: Configuring ANP
+    aci_ap:
+      hostname: "{{ apic_host }}"
+      username: "{{ apic_user }}"
+      password: "{{ apic_pass }}"
+      ap: "{{ item.anp_name }}"
+      tenant: "{{ item.tenant_name }}"
+      state: "{{ item.anp_state }}"
+      validate_certs: false
+    loop: "{{ tenant_pol.list | json_query('[].{tenant_name: tenant_name, anp_name: anp_name, anp_state: anp_state}')|unique }}"
+    loop_control:
+      label: "Configuring ANP \"{{ item.anp_name }}\" Tenant \"{{ item.tenant_name }}\""
+    tags: anp
+
+  - name: Configuring EPGs
+    aci_epg:
+      hostname: "{{ apic_host }}"
+      username: "{{ apic_user }}"
+      password: "{{ apic_pass }}"
+      tenant: "{{ item.tenant_name }}"
+      ap: "{{ item.anp_name }}"
+      epg: "{{ item.epg_name }}"
+      bd: "{{ item.bd_name }}"
+      preferred_group: "{{ item.epg_preferred_group }}"
+      state: "{{ item.epg_state }}"
+      validate_certs: false
+    loop: "{{ tenant_pol.list }}"
+    loop_control:
+      label: "Configuring EPG \"{{ item.epg_name }}\" BD \"{{ item.bd_name }}\" ANP \"{{ item.anp_name }}\" Tenant \"{{ item.tenant_name }}\""
+    tags: epg

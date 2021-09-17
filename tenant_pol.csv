@@ -1,0 +1,11 @@
+﻿tenant_name,tenant_state,vrf_name,policy_control_preference,vrf_preferred_group,vrf_state,bd_name,arp_flooding,enable_routing,endpoint_move_detection,l2_unknown_unicast,gateway,mask,subnet_state,scope,anp_name,anp_state,epg_name,epg_preferred_group,epg_state
+TN_KJH,present,VRF_KJH,,enabled,present,BD01,yes,yes,garp,proxy,10.0.1.1,24,present,public,ANP_KJH,present,EPG01,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD02,yes,yes,garp,proxy,10.0.2.1,24,present,public,ANP_KJH,present,EPG02,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD03,yes,yes,garp,proxy,10.0.3.1,24,present,public,ANP_KJH,present,EPG03,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD04,yes,yes,garp,proxy,10.0.4.1,24,present,public,ANP_KJH,present,EPG04,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD05,yes,yes,garp,proxy,10.0.5.1,24,present,public,ANP_KJH,present,EPG05,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD06,yes,yes,garp,proxy,10.0.6.1,24,present,public,ANP_KJH,present,EPG06,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD07,yes,yes,garp,proxy,10.0.7.1,24,present,public,ANP_KJH,present,EPG07,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD08,yes,yes,garp,proxy,10.0.8.1,24,present,public,ANP_KJH,present,EPG08,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD09,yes,yes,garp,proxy,10.0.9.1,24,present,public,ANP_KJH,present,EPG09,yes,present
+TN_KJH,present,VRF_KJH,,enabled,present,BD10,yes,yes,garp,proxy,10.0.10.1,24,present,public,ANP_KJH,present,EPG10,yes,present

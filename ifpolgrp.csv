@@ -1,0 +1,2 @@
+policy_group_name,lag_type,description,aep,link_level_policy,mcp_policy,cdp_policy,lldp_policy,port_channel_policy,stp_interface_policy,state
+IFPOLGRP_DUMMY,access,,,,,,,,,present

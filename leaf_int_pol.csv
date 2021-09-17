@@ -1,0 +1,21 @@
+node_id,sw_profile,sw_profile_state,leaf_int_profile,leaf_int_profile_state,int_selector,int_selector_state,interface,int_description,policy_group_name,interface_type
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_01,present,1,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_02,present,2,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_03,present,3,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_04,present,4,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_05,present,5,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_06,present,6,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_07,present,7,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_08,present,8,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_09,present,9,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1001,SWPRO_LEAF_1001,present,IFPRO_LEAF_1001,present,IFSEL_1001_1_10,present,10,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_01,present,1,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_02,present,2,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_03,present,3,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_04,present,4,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_05,present,5,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_06,present,6,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_07,present,7,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_08,present,8,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_09,present,9,### FREE ###,IFPOLGRP_DUMMY,switch_port
+1002,SWPRO_LEAF_1002,present,IFPRO_LEAF_1002,present,IFSEL_1002_1_10,present,10,### FREE ###,IFPOLGRP_DUMMY,switch_port

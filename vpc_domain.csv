@@ -1,0 +1,2 @@
+vpc_domain_name,vpc_id,switch_1,switch_2,state
+VPC_DOMAIN_1001_1002,101,1001,1002,present
